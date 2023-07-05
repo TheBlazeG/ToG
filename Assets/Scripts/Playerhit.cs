@@ -19,9 +19,9 @@ public class Playerhit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Switchable"))
-        {
-            collision.GetComponent<RBswitch>().Change();
-        }
+        //if (collision.CompareTag("Switchable"))
+        //{
+        //    collision.GetComponent<RBswitch>().Change();
+        //}
     }
 }
