@@ -177,7 +177,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 1929080502}
   - component: {fileID: 1929080501}
   - component: {fileID: 1929080505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,3 +372,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   speed: 3
+  projectile: {fileID: 3303765118360195545, guid: a8accad136cd50f429b439c265e859d7, type: 3}
+  currentState: 0

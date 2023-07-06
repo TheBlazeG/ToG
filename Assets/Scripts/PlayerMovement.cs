@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum PlayerState
+{
+    walk,
+    attack,
+    interact,
+    stagger,
+    idle
+}
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
@@ -10,10 +19,16 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
+    private Vector3 ardir;
+    public GameObject projectile;
+    private Animator animator;
+    public PlayerState currentState;
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        
+        ardir.y = -1;
+
     }
     private void Update()
     {
@@ -21,14 +36,23 @@ public class PlayerMovement : MonoBehaviour
         //{
         //    return;
         //}
+        if (change.x == 0 && change.y == 0)
+        {
+
+        } else
+        {
+            ardir.x = change.x;
+            ardir.y = change.y; 
+        }
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal")*Time.deltaTime*speed;
         change.y = Input.GetAxisRaw("Vertical")*Time.deltaTime*speed;
-        //if (Input.GetButtonDown("attack")&& currentState != PlayerState.a)
-        //{
-        //StartCoroutine(AttackCo());
-        //}
-        Debug.Log(change);
+        if (Input.GetButtonDown("attack"))
+        {
+            Debug.Log("attack button prssed");
+            StartCoroutine(AttackCo());
+        }
+
         if (change != Vector3.zero)
         {
 
@@ -36,50 +60,33 @@ public class PlayerMovement : MonoBehaviour
 
         }
         MoveCharacter();
-        //if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        //{
-        //    StartCoroutine(Dash());
-        //}
+
     }
 
     private IEnumerator AttackCo()
     {
-        //animator.SetBool("attacking", true);
-        //currentState = PlayerState.attack;
+        currentState = PlayerState.attack;
+        yield return null;
+        MakeArrow();
         yield return new WaitForSeconds(.3f);
-        //currentState = PlayerState.walk;
+        if (currentState != PlayerState.interact)
+        {
+            currentState = PlayerState.walk;
+        }
     }
-    //private IEnumerator SecondAttackCo()
-    //{
-    //    //animator.SetBool("attacking", true);
-    //    currentState = PlayerState.attack;
-    //    yield return null;
-    //    MakeArrow();
-    //    //animator.SetBool("attacking", false);
-    //    yield return new WaitForSeconds(.3f);
-    //    if (currentState != PlayerState.interact)
-    //    {
-    //        currentState = PlayerState.walk;
-    //    }
-    //}
 
-    //private void MakeArrow()
-    //{
-    //    if (playerInventory.currentMagic > 0)
-    //    {
-    //        Vector2 temp = new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
-    //        Arrow arrow = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Arrow>();
-    //        arrow.Setup(temp, ChooseArrowDirection());
-    //        playerInventory.ReduceMagic(arrow.magicCost);
-    //        reduceMagic.Raise();
-    //    }
-    //}
+    private void MakeArrow()
+    {
+        Vector2 temp = new Vector2(ardir.x, ardir.y);
+        Arrow arrow = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Arrow>();
+        arrow.Setup(temp, ChooseArrowDirection());
+    }
 
-    //Vector3 ChooseArrowDirection()
-    //{
-    //    float temp = Mathf.Atan2(animator.GetFloat("moveY"), animator.GetFloat("moveX")) * Mathf.Rad2Deg;
-    //    return new Vector3(0, 0, temp);
-    //}
+    Vector3 ChooseArrowDirection()
+    {
+        float temp = Mathf.Atan2(ardir.x, ardir.y) * Mathf.Rad2Deg;
+        return new Vector3(0, 0, temp);
+    }
     //[Header("Dash Settings")]
     //[SerializeField] float dashSpeed = 20f;
     //[SerializeField] float dashDuration = .2f;
