@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal")*Time.deltaTime*speed;
         change.y = Input.GetAxisRaw("Vertical")*Time.deltaTime*speed;
+        //if (Input.GetButtonDown("attack")&& currentState != PlayerState.a)
+        //{
+        //StartCoroutine(AttackCo());
+        //}
         Debug.Log(change);
         if (change != Vector3.zero)
         {
@@ -38,6 +42,13 @@ public class PlayerMovement : MonoBehaviour
         //}
     }
 
+    private IEnumerator AttackCo()
+    {
+        //animator.SetBool("attacking", true);
+        //currentState = PlayerState.attack;
+        yield return new WaitForSeconds(.3f);
+        //currentState = PlayerState.walk;
+    }
     //private IEnumerator SecondAttackCo()
     //{
     //    //animator.SetBool("attacking", true);
