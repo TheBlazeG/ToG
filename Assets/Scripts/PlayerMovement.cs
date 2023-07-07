@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        animator= GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         ardir.y = -1;
 
@@ -47,32 +48,46 @@ public class PlayerMovement : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal")*Time.deltaTime*speed;
         change.y = Input.GetAxisRaw("Vertical")*Time.deltaTime*speed;
-        if (Input.GetButtonDown("attack"))
+        if (Input.GetButtonDown("attack")&& currentState != PlayerState.attack)
         {
             Debug.Log("attack button prssed");
             StartCoroutine(AttackCo());
         }
-
+        else if (currentState==PlayerState.walk)
+        {
+UpdateAnimationAndMove();
+        }
+        
+    }
+    void UpdateAnimationAndMove()
+    {
         if (change != Vector3.zero)
         {
 
             transform.Translate(new Vector3(change.x, change.y));
+            animator.SetFloat("moveX", change.x);
+            animator.SetFloat("moveY", change.y);
+            animator.SetBool("moving", true);
 
+        }
+        else
+        {
+            animator.SetBool("moving", false);
         }
         MoveCharacter();
 
     }
-
     private IEnumerator AttackCo()
     {
+        animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
         yield return null;
         MakeArrow();
         yield return new WaitForSeconds(.3f);
-        if (currentState != PlayerState.interact)
-        {
+        //if (currentState != PlayerState.interact)
+        //{
             currentState = PlayerState.walk;
-        }
+       // }
     }
 
     private void MakeArrow()
