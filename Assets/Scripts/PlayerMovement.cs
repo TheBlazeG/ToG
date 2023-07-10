@@ -48,14 +48,21 @@ public class PlayerMovement : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal")*Time.deltaTime*speed;
         change.y = Input.GetAxisRaw("Vertical")*Time.deltaTime*speed;
-        if (Input.GetButtonDown("attack")&& currentState != PlayerState.attack)
+
+        if (Input.GetButtonDown("attack") && currentState != PlayerState.attack)
         {
             Debug.Log("attack button prssed");
             StartCoroutine(AttackCo());
         }
+        else if (Input.GetButtonDown("attack2") && currentState != PlayerState.attack)
+        {
+            Debug.Log("sword button prssed");
+            StartCoroutine(AttackSword());
+        }
         else if (currentState==PlayerState.walk)
         {
-UpdateAnimationAndMove();
+            UpdateAnimationAndMove();
+            currentState = PlayerState.walk;
         }
         
     }
@@ -79,15 +86,23 @@ UpdateAnimationAndMove();
     }
     private IEnumerator AttackCo()
     {
-        animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
-        yield return null;
         MakeArrow();
         yield return new WaitForSeconds(.3f);
+        currentState = PlayerState.walk;
         //if (currentState != PlayerState.interact)
         //{
-            currentState = PlayerState.walk;
-       // }
+
+        // }
+    }
+
+    private IEnumerator AttackSword()
+    {
+        animator.SetBool("attacking", true);
+        currentState = PlayerState.attack;
+        yield return new WaitForSeconds(.3f);
+        animator.SetBool("attacking", false);
+        currentState = PlayerState.walk;
     }
 
     private void MakeArrow()
