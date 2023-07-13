@@ -9,7 +9,7 @@ public class Switch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -17,14 +17,14 @@ public class Switch : MonoBehaviour
     {
         
     }
-    public void onHit()
+    public void Smash()
     {
-        anim.SetBool("hit", true);
-        StartCoroutine(SwitchCo());
+        
+        StartCoroutine(BreakCo());
     }
-    IEnumerator SwitchCo()
+    IEnumerator BreakCo()
     {
         yield return new WaitForSeconds(.3f);
-        
+        this.gameObject.SetActive(false);
     }
 }

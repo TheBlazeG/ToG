@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.8f);
         animator.SetBool("attacking", false);
         currentState = PlayerState.walk;
     }
@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] float dashDuration = .2f;
     //[SerializeField] float dashCooldown = 1f;
     //bool isDashing;
-    //bool canDash=true;
+    //bool canDash = true;
 
     //private IEnumerator Dash()
     //{
