@@ -3811,7 +3811,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118405238}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3821,7 +3821,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &118405244
@@ -3836,6 +3836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a52312cd15050c447a27df0850cf4741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentstate: 0
   health: 3
   enemyName: Slime
   baseAttack: 1
@@ -42158,9 +42159,6 @@ MonoBehaviour:
   projectile: {fileID: 3303765118360195545, guid: a8accad136cd50f429b439c265e859d7, type: 3}
   currentState: 0
   direction: {x: 0, y: 0}
-  dashSpeed: 20
-  dashDuration: 0.2
-  dashCooldown: 1
 --- !u!95 &1929080506
 Animator:
   serializedVersion: 5
@@ -42207,11 +42205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d647ff86418e78141b0c9e7d546d3e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashTime: 1
-  dashvelocity: 2
-  dashcouldown: 3
-  isDashing: 0
-  canDash: 1
 --- !u!1001 &1931531635
 PrefabInstance:
   m_ObjectHideFlags: 0

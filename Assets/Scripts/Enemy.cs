@@ -28,4 +28,18 @@ public class Enemy : MonoBehaviour
     {
         
     }
+    private IEnumerator KnockCo(Rigidbody2D myRigidbody,float knockTime)
+    {
+        if (myRigidbody != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            myRigidbody.velocity = Vector2.zero;
+            currentstate = EnemyState.idle;
+
+        }
+    }
+    public void Knock(Rigidbody2D myRigidbody,float knockTime)
+    {
+        StartCoroutine(KnockCo(myRigidbody,knockTime));
+    }
 }
