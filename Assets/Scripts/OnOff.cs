@@ -25,9 +25,9 @@ public class OnOff : MonoBehaviour
     {
         Debug.Log("Collision detected!");
 
-        if (collision.tag == "Player")
+        if (collision.tag == "arrow")
         {
-            Debug.Log("Collision player detected!");
+            Debug.Log("Collision arrow detected!");
             switchController.FlipSwitch();
 
             if (isOn)

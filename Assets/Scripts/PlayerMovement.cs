@@ -24,20 +24,20 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     public PlayerState currentState;
     [SerializeField] public Vector2 direction;
-    PlayerDash pd;
+   // PlayerDash pd;
     void Start()
     {
         animator= GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         ardir.y = -1;
-        pd = GetComponent<PlayerDash>();
+        //pd = GetComponent<PlayerDash>();
     }
     private void Update()
     {
-        if (isDashing)
-        {
-            return;
-        }
+       // if (isDashing)
+       // {
+       //   return;
+       // }
         if (change.x == 0 && change.y == 0)
         {
 
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("sword button prssed");
             StartCoroutine(AttackSword());
         }
-        else if (currentState==PlayerState.walk && !pd.isDashing)
+        else if (currentState==PlayerState.walk)
         {
             UpdateAnimationAndMove();
             currentState = PlayerState.walk;
@@ -117,13 +117,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
    
-    [Header("Dash Settings")]
-    [SerializeField] float dashSpeed = 20f;
-    [SerializeField] float dashDuration = .2f;
-    [SerializeField] float dashCooldown = 1f;
-    bool isDashing;
-    bool canDash = true;
-
+    //[SerializeField] float dashSpeed = 20f;
+    //[SerializeField] float dashDuration = .2f;
+    //[SerializeField] float dashCooldown = 1f;
+    //bool isDashing;
+    //bool canDash = true;
+    /***
     private IEnumerator Dash()
     {
         
@@ -137,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
+    */
     void MoveCharacter()
     {
 

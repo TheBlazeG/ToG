@@ -29,6 +29,7 @@ public class Arrow : MonoBehaviour
     {
         myRigidbody.velocity = velocity.normalized * speed;
         transform.rotation = Quaternion.Euler(direction);
+        print(direction);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
