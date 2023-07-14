@@ -783,7 +783,7 @@ GameObject:
   m_Component:
   - component: {fileID: 26697068}
   - component: {fileID: 26697069}
-  - component: {fileID: 26697070}
+  - component: {fileID: 26697071}
   m_Layer: 7
   m_Name: down hitbox
   m_TagString: Untagged
@@ -836,7 +836,7 @@ PolygonCollider2D:
       - {x: -0.113276064, y: -0.14740722}
       - {x: 0.15655147, y: -0.14967935}
       - {x: 0.16024858, y: -0.03653875}
---- !u!114 &26697070
+--- !u!114 &26697071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -845,9 +845,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 26697067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5839ca19d578fd746b4ad81bfe2390f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0890f9099587fde48b350922a1587f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 10
+  knockTime: 0.2
 --- !u!1001 &27409493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3683,6 +3685,7 @@ GameObject:
   - component: {fileID: 118405243}
   - component: {fileID: 118405242}
   - component: {fileID: 118405244}
+  - component: {fileID: 118405245}
   m_Layer: 0
   m_Name: Slime
   m_TagString: enemy
@@ -3845,6 +3848,32 @@ MonoBehaviour:
   chaseRadius: 1.5
   attackRadius: 0.3
   homePosition: {fileID: 0}
+--- !u!61 &118405245
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118405238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011696577, y: 0.008772612}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.33328414, y: 0.37422323}
+  m_EdgeRadius: 0
 --- !u!1001 &128407722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38577,7 +38606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1784257585}
   - component: {fileID: 1784257586}
-  - component: {fileID: 1784257587}
+  - component: {fileID: 1784257588}
   m_Layer: 7
   m_Name: right hitbox
   m_TagString: Untagged
@@ -38631,7 +38660,7 @@ PolygonCollider2D:
       - {x: 0.15145808, y: -0.09464693}
       - {x: 0.17515719, y: -0.06502603}
       - {x: 0.17284273, y: 0.16540833}
---- !u!114 &1784257587
+--- !u!114 &1784257588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38640,9 +38669,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784257584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5839ca19d578fd746b4ad81bfe2390f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0890f9099587fde48b350922a1587f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 10
+  knockTime: 0.2
 --- !u!1 &1786289978
 GameObject:
   m_ObjectHideFlags: 0
@@ -40489,7 +40520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872761760}
   - component: {fileID: 1872761761}
-  - component: {fileID: 1872761762}
+  - component: {fileID: 1872761763}
   m_Layer: 7
   m_Name: up hitbox
   m_TagString: Untagged
@@ -40542,7 +40573,7 @@ PolygonCollider2D:
       - {x: -0.18404728, y: -0.02372466}
       - {x: 0.19292086, y: -0.010414466}
       - {x: 0.17163669, y: 0.093023434}
---- !u!114 &1872761762
+--- !u!114 &1872761763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40551,9 +40582,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1872761759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5839ca19d578fd746b4ad81bfe2390f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0890f9099587fde48b350922a1587f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 10
+  knockTime: 0.2
 --- !u!1 &1878721416
 GameObject:
   m_ObjectHideFlags: 0
@@ -42016,8 +42049,8 @@ GameObject:
   - component: {fileID: 1929080501}
   - component: {fileID: 1929080505}
   - component: {fileID: 1929080506}
-  - component: {fileID: 1929080507}
   - component: {fileID: 1929080508}
+  - component: {fileID: 1929080509}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -42179,20 +42212,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1929080507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929080500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0890f9099587fde48b350922a1587f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 6
-  knockTime: 0.1
 --- !u!114 &1929080508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42205,6 +42224,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d647ff86418e78141b0c9e7d546d3e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1929080509
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929080500}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012247913, y: 0.03061983}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.17938907, y: 0.30186832}
+  m_EdgeRadius: 0
 --- !u!1001 &1931531635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45538,7 +45583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2086402645}
   - component: {fileID: 2086402646}
-  - component: {fileID: 2086402647}
+  - component: {fileID: 2086402648}
   m_Layer: 7
   m_Name: left hitbox
   m_TagString: Untagged
@@ -45593,7 +45638,7 @@ PolygonCollider2D:
       - {x: -0.13077495, y: -0.12126732}
       - {x: -0.0022930503, y: -0.1479516}
       - {x: -0.0028297454, y: -0.050353944}
---- !u!114 &2086402647
+--- !u!114 &2086402648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45602,9 +45647,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2086402644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5839ca19d578fd746b4ad81bfe2390f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0890f9099587fde48b350922a1587f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 10
+  knockTime: 0.2
 --- !u!1 &2087757787
 GameObject:
   m_ObjectHideFlags: 0
