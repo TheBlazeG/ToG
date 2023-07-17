@@ -7,6 +7,8 @@ TagManager:
   - enemy
   - breakable
   - arrow
+  - redswitch
+  - blueswitch
   layers:
   - Default
   - TransparentFX
@@ -43,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Overworld
+    uniqueID: 1740676001
+    locked: 0
+  - name: Player
+    uniqueID: 1158968085
     locked: 0

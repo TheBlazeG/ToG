@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : MonoBehaviour
+public class Block2 : MonoBehaviour
 {
-
     public bool isOn;
     public OnOffController switchController;
     private Collider2D col;
     private Animator redswitch;
-    
 
 
     // Start is called before the first frame update
@@ -22,20 +20,17 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-            isOn = switchController.isOn;
+        isOn = switchController.isOn;
 
-            if (isOn)
-            {
-                redswitch.SetBool("upred", true);
-                col.enabled = true;
-            }
-            else if (!isOn)
-            {
-                redswitch.SetBool("upred", false);
-                col.enabled = false;
-            }
-        
-        
+        if (isOn)
+        {
+            redswitch.SetBool("upblue", false);
+            col.enabled = false;
+        }
+        else if (!isOn)
+        {
+            redswitch.SetBool("upblue", true);
+            col.enabled = true;
+        }
     }
 }

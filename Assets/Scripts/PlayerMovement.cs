@@ -56,12 +56,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("attack button prssed");
             StartCoroutine(AttackCo());
         }
-        else if (Input.GetButtonDown("attack2") && currentState != PlayerState.attack)
+        else if (Input.GetButtonDown("attack2") && currentState != PlayerState.attack && currentState!=PlayerState.stagger)//attaaaaaaaack
         {
             Debug.Log("sword button prssed");
             StartCoroutine(AttackSword());
         }
-        else if (currentState==PlayerState.walk)
+        else if (currentState==PlayerState.walk||currentState==PlayerState.idle)
         {
             UpdateAnimationAndMove();
             currentState = PlayerState.walk;
@@ -155,5 +155,21 @@ public class PlayerMovement : MonoBehaviour
     {
         float temp = Mathf.Atan2(ardir.x, ardir.y) * Mathf.Rad2Deg;
         return new Vector3(0, 0, temp);
+    }
+    private IEnumerator KnockCo(float knockTime)
+    {
+        if (myRigidbody != null || currentState != PlayerState.stagger)
+        {
+            yield return new WaitForSeconds(knockTime);
+            myRigidbody.velocity = Vector2.zero;
+            currentState = PlayerState.idle;
+            myRigidbody.velocity=Vector2.zero;
+        }
+    }
+    public void Knock(float knockTime)
+    {
+        
+        StartCoroutine(KnockCo(knockTime));
+        Debug.Log("Knock");
     }
 }

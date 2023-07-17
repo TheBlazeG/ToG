@@ -8,11 +8,12 @@ public class OnOff : MonoBehaviour
     public bool isOn;
     private GameObject child;
     public OnOffController switchController;
+    private Animator dungeonSwitch;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        dungeonSwitch = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,14 +29,19 @@ public class OnOff : MonoBehaviour
         if (collision.tag == "arrow")
         {
             Debug.Log("Collision arrow detected!");
+            
+              
+            
+            
+
             switchController.FlipSwitch();
 
             if (isOn)
             {
-
+                dungeonSwitch.SetBool("On", false);
             } else if (!isOn)
             {
-
+                dungeonSwitch.SetBool("On", true);
             }
         }
     }
