@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/pp.unity
     guid: 0e038cc93f911d44cb49470681e5f50d
   - enabled: 1
+    path: Assets/AssetsD/D_Scenes/DungeonV1.unity
+    guid: 6482e9ce05986d4478060660008e4909
+  - enabled: 1
+    path: Assets/Bosspp.unity
+    guid: c08b3aaa70ebcf44d9b065ad968c53d5
+  - enabled: 1
     path: Assets/UI/Muerte.unity
     guid: a81a15dfcff28b9448f19db6e9475aa9
   m_configObjects: {}
