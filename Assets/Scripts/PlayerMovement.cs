@@ -24,31 +24,32 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     public PlayerState currentState;
     [SerializeField] public Vector2 direction;
-   // PlayerDash pd;
+    // PlayerDash pd;
     void Start()
     {
-        animator= GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         ardir.y = -1;
         //pd = GetComponent<PlayerDash>();
     }
     private void Update()
     {
-       // if (isDashing)
-       // {
-       //   return;
-       // }
+        // if (isDashing)
+        // {
+        //   return;
+        // }
         if (change.x == 0 && change.y == 0)
         {
 
-        } else
+        }
+        else
         {
             ardir.x = change.x;
-            ardir.y = change.y; 
+            ardir.y = change.y;
         }
         change = Vector3.zero;
-        change.x = Input.GetAxisRaw("Horizontal")*Time.deltaTime*speed;
-        change.y = Input.GetAxisRaw("Vertical")*Time.deltaTime*speed;
+        change.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
+        change.y = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
         if (Input.GetButtonDown("attack") && currentState != PlayerState.attack)
@@ -56,26 +57,26 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("attack button prssed");
             StartCoroutine(AttackCo());
         }
-        else if (Input.GetButtonDown("attack2") && currentState != PlayerState.attack && currentState!=PlayerState.stagger)//attaaaaaaaack
+        else if (Input.GetButtonDown("attack2") && currentState != PlayerState.attack && currentState != PlayerState.stagger)//attaaaaaaaack
         {
             Debug.Log("sword button prssed");
             StartCoroutine(AttackSword());
         }
-        else if (currentState==PlayerState.walk||currentState==PlayerState.idle)
+        else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
             currentState = PlayerState.walk;
         }
         //if (Input.GetButtonDown("Dash"))
         //{
-            
+
         //    if (canDash)
         //    {
-                
+
         //        StartCoroutine(Dash());
         //    }
         //}
-        
+
     }
     void UpdateAnimationAndMove()
     {
@@ -116,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         currentState = PlayerState.walk;
     }
 
-   
+
     //[SerializeField] float dashSpeed = 20f;
     //[SerializeField] float dashDuration = .2f;
     //[SerializeField] float dashCooldown = 1f;
@@ -163,12 +164,12 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(knockTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = PlayerState.idle;
-            myRigidbody.velocity=Vector2.zero;
+            myRigidbody.velocity = Vector2.zero;
         }
     }
     public void Knock(float knockTime)
     {
-        
+
         StartCoroutine(KnockCo(knockTime));
         Debug.Log("Knock");
     }

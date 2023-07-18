@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3208994174193175601}
   - component: {fileID: 7830927089173348443}
   - component: {fileID: -4483916065327371719}
+  - component: {fileID: 5898683958691933084}
   m_Layer: 6
   m_Name: Arrow
   m_TagString: arrow
@@ -153,3 +154,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5839ca19d578fd746b4ad81bfe2390f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5898683958691933084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303765118360195545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0890f9099587fde48b350922a1587f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 0.1
+  knockTime: 0.1
+  damage: 1

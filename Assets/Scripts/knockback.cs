@@ -6,6 +6,7 @@ public class knockback : MonoBehaviour
 {
     public float thrust;
     public float knockTime;
+    public float damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,21 +18,21 @@ public class knockback : MonoBehaviour
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
-                if (collision.gameObject.CompareTag("enemy"))
+                if (collision.gameObject.CompareTag("enemy") && collision.isTrigger)
                 {
                     hit.GetComponent<Enemy>().currentstate = EnemyState.stagger;
-                    collision.GetComponent<Enemy>().Knock(hit, knockTime);
+                    collision.GetComponent<Enemy>().Knock(hit, knockTime, damage);
                 }
                 if (collision.gameObject.CompareTag("Player"))
                 {
                     hit.GetComponent<PlayerMovement>().currentState = PlayerState.stagger;
                     collision.GetComponent<PlayerMovement>().Knock(knockTime);
                 }
-                
+
 
             }
         }
-        if (collision.gameObject.CompareTag("breakable")&&this.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))
         {
             collision.GetComponent<Switch>().Smash();
 

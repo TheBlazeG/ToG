@@ -1079,6 +1079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
+  damage: 1
 --- !u!1 &26931830
 GameObject:
   m_ObjectHideFlags: 0
@@ -5438,7 +5439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentstate: 0
-  health: 3
+  maxHealth: {fileID: 11400000, guid: 7c6cf11e91e29ee429aba6da6843f81d, type: 2}
+  health: 2
   enemyName: Slime
   baseAttack: 1
   moveSpeed: 0.7
@@ -5461,6 +5463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
+  damage: 0
 --- !u!61 &118405247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54948,6 +54951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
+  damage: 1
 --- !u!1 &1786289978
 GameObject:
   m_ObjectHideFlags: 0
@@ -57553,6 +57557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
+  damage: 1
 --- !u!1 &1874875829
 GameObject:
   m_ObjectHideFlags: 0
@@ -64010,6 +64015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
+  damage: 1
 --- !u!1 &2087757787
 GameObject:
   m_ObjectHideFlags: 0
