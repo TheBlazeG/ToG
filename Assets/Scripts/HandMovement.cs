@@ -6,6 +6,7 @@ public class HandMovement : MonoBehaviour
 {
     private float moveSpeed;
     private bool moveRight;
+    private bool start = true;
 
     // Start is called before the first frame update
     void Start()
@@ -17,22 +18,30 @@ public class HandMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > 4f)
-        {
-            moveRight = false;
-        }
-        else if (transform.position.x < -4f)
+        if (start) 
         { 
-            moveRight = true;
+            new WaitForSeconds(5f);
+            start = false;
         }
-        if (moveRight) 
+        if (!start)
         {
-            transform.position=new Vector2(transform.position.x+moveSpeed*Time.deltaTime,transform.position.y);
+            if (transform.position.x > 4f)
+            {
+                moveRight = false;
+            }
+            else if (transform.position.x < -4f)
+            {
+                moveRight = true;
+            }
+            if (moveRight)
+            {
+                transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
 
-        }
-        else
-        {
-            transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
+            }
+            else
+            {
+                transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
+            }
         }
     }
 }

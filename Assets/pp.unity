@@ -2086,7 +2086,7 @@ Transform:
   - {fileID: 580286546}
   - {fileID: 691801315}
   m_Father: {fileID: 144546011}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &43938679
 PrefabInstance:
@@ -6609,8 +6609,8 @@ Transform:
   - {fileID: 73882232}
   - {fileID: 1571973664}
   - {fileID: 425331034}
-  - {fileID: 556243825}
   - {fileID: 41418396}
+  - {fileID: 556243825}
   - {fileID: 961452655}
   - {fileID: 440898635}
   m_Father: {fileID: 0}
@@ -29979,7 +29979,7 @@ GameObject:
   - component: {fileID: 903438901}
   - component: {fileID: 903438900}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
