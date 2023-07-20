@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     private Collider2D col;
+    [SerializeField] DontDestroy dd;
+
     // Start is called before the first frame update
 
     private void Start()
@@ -16,7 +18,9 @@ public class SceneChange : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+            DontDestroy.lastsaved = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(DontDestroy.lastsaved);
+
         }
         
     }

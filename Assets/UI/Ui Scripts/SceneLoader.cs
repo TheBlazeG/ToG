@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadScene(int _index)
+
+    [SerializeField] DontDestroy dd;
+
+    public void MainMenu()
     {
-        SceneManager.LoadScene(_index);
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(DontDestroy.lastsaved);
     }
 
     public void ExitGame()

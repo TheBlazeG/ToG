@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public enum PlayerState
 {
@@ -16,7 +17,9 @@ public class PlayerMovement : MonoBehaviour
 {
     //[SerializeField] Rigidbody rb;
     // Start is called before the first frame update
+    [SerializeField] public float health;
     public float speed;
+    public FloatValue playerHealth;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Vector3 ardir;
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     public PlayerState currentState;
     [SerializeField] public Vector2 direction;
+    [SerializeField] BarraDeVida barra;
     // PlayerDash pd;
     void Start()
     {
@@ -77,6 +81,20 @@ public class PlayerMovement : MonoBehaviour
         //    }
         //}
 
+    }
+
+    private void Awake()
+    {
+        health = playerHealth.initialValue;
+    }
+
+    private void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
     void UpdateAnimationAndMove()
     {
@@ -167,10 +185,12 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.velocity = Vector2.zero;
         }
     }
-    public void Knock(float knockTime)
+    public void Knock(float knockTime, float damage)
     {
 
         StartCoroutine(KnockCo(knockTime));
         Debug.Log("Knock");
+        TakeDamage(damage);
+        barra.CambiarVidaActual(health);
     }
 }
