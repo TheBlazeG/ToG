@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 1710631694502928431}
   - component: {fileID: 1710631694502928430}
   - component: {fileID: 750001038060504211}
+  - component: {fileID: 7077795725284247292}
+  - component: {fileID: -1764464941025622171}
+  - component: {fileID: -6509079208365134333}
   m_Layer: 0
   m_Name: Mano-proyectil-solo
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,3 +100,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431c33dcab1b51e438672db3f4bb9841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
+--- !u!114 &7077795725284247292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710631694502928429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0890f9099587fde48b350922a1587f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 1
+  knockTime: 0.2
+  damage: 1
+--- !u!61 &-1764464941025622171
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710631694502928429}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0056224465, y: -0.036801264}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.17381704, y: 0.18915102}
+  m_EdgeRadius: 0
+--- !u!114 &-6509079208365134333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710631694502928429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52312cd15050c447a27df0850cf4741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentstate: 0
+  maxHealth: {fileID: 11400000, guid: cdb4723b0f21ff245a2e2faa188e9416, type: 2}
+  health: 1
+  enemyName: ball
+  baseAttack: 1
+  moveSpeed: 0
+  target: {fileID: 0}
+  chaseRadius: 0
+  attackRadius: 0
+  homePosition: {fileID: 0}
+  anim: {fileID: 0}

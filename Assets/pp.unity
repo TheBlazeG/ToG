@@ -2689,7 +2689,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.5
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -18709,7 +18709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dd: {fileID: 2084526964}
-  lasts: 0
 --- !u!4 &558917218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4332178758314862314, guid: 08ff003030d145840972d9da99ce709b, type: 3}
@@ -40195,7 +40194,7 @@ Transform:
   m_GameObject: {fileID: 1268732823}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.95999956, y: -8.47, z: 0.100151084}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.274, y: 1.274, z: 1.274}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1632745372}
@@ -62132,7 +62131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.654902}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.654902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -64446,8 +64445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52377a1708f4a624c89a7f872d026d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sc: {fileID: 557575231}
-  lastsaved: 0
 --- !u!4 &2084526965
 Transform:
   m_ObjectHideFlags: 0

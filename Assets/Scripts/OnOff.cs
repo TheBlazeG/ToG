@@ -20,6 +20,14 @@ public class OnOff : MonoBehaviour
     void Update()
     {
         isOn = switchController.isOn;
+        if (isOn)
+        {
+            dungeonSwitch.SetBool("On", false);
+        }
+        else if (!isOn)
+        {
+            dungeonSwitch.SetBool("On", true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,13 +44,7 @@ public class OnOff : MonoBehaviour
 
             switchController.FlipSwitch();
 
-            if (isOn)
-            {
-                dungeonSwitch.SetBool("On", false);
-            } else if (!isOn)
-            {
-                dungeonSwitch.SetBool("On", true);
-            }
+           
         }
     }
 }
